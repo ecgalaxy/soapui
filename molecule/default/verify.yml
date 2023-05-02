@@ -1,0 +1,17 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Include role defaults vars
+      with_first_found:
+        - "../../defaults/main.yml"
+      ansible.builtin.include_vars: "{{ item }}"
+    - name: Check SoapUI
+      ansible.builtin.command: "{{ soapui_install_dir }}/bin/testrunner.sh"
+      register: output
+    - name: Assert that SoapUI is installed
+      ansible.builtin.assert:
+        that:
+        - "'SoapUI' in output.stdout"
+        

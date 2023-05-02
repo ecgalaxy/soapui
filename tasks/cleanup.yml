@@ -1,0 +1,7 @@
+---
+- name: Clean up temporary files
+  ansible.builtin.file:
+    path: "{{ soapui_role_working_dir }}"
+    state: absent
+  when: not soapui_already_installed.stat.exists
+  become: true

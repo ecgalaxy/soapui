@@ -1,0 +1,19 @@
+---
+- name: Prepare
+  hosts: all
+  tasks:
+    # https://github.com/debuerreotype/debuerreotype/issues/10
+    - name: Create missing man directory
+      ansible.builtin.file:
+        path: /usr/share/man/man1
+        state: directory
+        owner: root
+        group: root
+        mode: 0755
+      when: ansible_os_family == 'Debian'
+      changed_when: false
+  environment:
+    http_proxy: "{{ lookup('env', 'http_proxy') }}"
+    https_proxy: "{{ lookup('env', 'https_proxy') }}"
+    no_proxy: "{{ lookup('env', 'no_proxy') }}"
+  become: true

@@ -1,0 +1,18 @@
+---
+- name: Check if SoapUI is already installed
+  ansible.builtin.stat:
+    path: "{{ soapui_install_dir }}"
+  register: soapui_already_installed
+  become: true
+  
+- name: Include install
+  ansible.builtin.include_tasks: install.yml
+  when: not soapui_uninstall and not soapui_already_installed.stat.exists
+
+- name: Include uninstall
+  ansible.builtin.include_tasks: uninstall.yml
+  when: soapui_uninstall and soapui_already_installed.stat.exists
+
+- name: Include cleanup tasks
+  ansible.builtin.include_tasks: cleanup.yml
+  when: soapui_cleanup
