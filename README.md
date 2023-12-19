@@ -1,7 +1,7 @@
 ECGALAXY soapui role
-========
+====================
 
-Ansible role which installs SoapUI
+Ansible role which installs SoapUI.
 
 Requirements
 ------------
@@ -10,6 +10,7 @@ None.
 
 Role Variables
 --------------
+
 - `soapui_version`: the version to download
 - `soapui_url`: the URL from where to download the SH install script
 - `soapui_role_working_dir`: the location on where to store temporary files
@@ -17,21 +18,23 @@ Role Variables
 - `soapui_cleanup`: set to `true` (default) to clean up temporary files
 - `soapui_uninstall`: set to `true` to uninstall
 
-
 Dependencies
 ------------
 
 This role depends on the following ECGALAXY roles:
 
+- ecgalaxy.bootstrap
 - ecgalaxy.common_packages
 - ecgalaxy.java_openjdk
-
 
 Example Playbook
 ----------------
 
     - hosts: all
       roles:
+        - ecgalaxy.bootstrap
+        - ecgalaxy.common_packages
+        - ecgalaxy.java_openjdk
         - ecgalaxy.soapui
 
 One-liner
