@@ -10,7 +10,7 @@
   ansible.builtin.get_url:
     url: "{{ soapui_url }}"
     dest: "{{ soapui_role_working_dir }}"
-    mode: 0777
+    mode: 'u=rwx,go=rx'
   register: downloaded_file
   become: true
 

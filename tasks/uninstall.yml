@@ -14,7 +14,7 @@
 
 - name: Remove all SoapUI desktop files
   ansible.builtin.file:
-    path:  "{{ item.path }}"
+    path: "{{ item.path }}"
     state: absent
   with_items: "{{ desktop_files.files }}"
   become: true
