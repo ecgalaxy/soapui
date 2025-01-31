@@ -5,7 +5,7 @@
     - role: ecgalaxy.bootstrap
     - role: ecgalaxy.common_packages
     - role: ecgalaxy.java_openjdk
-    - role: ecgalaxy.soapui
+    - role: soapui
   environment:
     http_proxy: "{{ lookup('env', 'http_proxy') }}"
     https_proxy: "{{ lookup('env', 'https_proxy') }}"
