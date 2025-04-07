@@ -1,6 +1,6 @@
 ---
-soapui_version: "5.7.0"
-soapui_url: "https://s3.amazonaws.com/downloads.eviware/soapuios/{{ soapui_version }}/SoapUI-x64-{{ soapui_version }}.sh"
+soapui_version: "5.8.0"
+soapui_url: "https://dl.eviware.com/soapuios/{{ soapui_version }}/SoapUI-x64-{{ soapui_version }}.sh"
 soapui_role_working_dir: /tmp/soapui
 soapui_install_dir: "/opt/smartbear/soapui/{{ soapui_version }}"
 soapui_cleanup: true
